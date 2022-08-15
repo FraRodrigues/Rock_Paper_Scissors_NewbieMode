@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: url("img/rps_01.png");
+    
+}
+
+.title {
+  text-align: center;
+  margin-top: 5vh;
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.resultName {
+    text-align: center;
+    margin: 6px 0 6px 0;
+    font-weight: 500;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.game {
+    display: flex;
+    flex: 0 1 auto;
+    font-size: 1.5em;
+    font-weight: 650;
+    align-self: center;
+    align-items:center;
+    margin-top: 5vh;
+}
+
+.game div {
+    margin: 0 5vw 0 5vw;
+}
+
+.game img {
+    width: 20vw;
+}
+
+.options {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    margin-top:5vh;
+}
+
+.options img{
+    margin: 0 5vw 0 5vw;
+    width: 20vw;
+    height: 20vh;
+}
