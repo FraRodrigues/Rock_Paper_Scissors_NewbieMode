@@ -33,22 +33,22 @@ function battle(playerSelection, computerSelection){
         console.log("Draw")
         playerWin = 0
     } else if (computerSelection === 1 && playerSelection === 2) {
-        console.log ("You win! Paper beats rock")
+        roundMessage("You win! Paper beats rock")
         playerWin = 1
     } else if (computerSelection === 2 && playerSelection === 1) {
-        console.log ("You lose! Paper beats rock")
+        roundMessage("You lose! Paper beats rock")
         playerWin = -1 
     } else if (computerSelection === 1 && playerSelection === 3) {
-        console.log ("You lose! Rock beats Scissors")
+        roundMessage("You lose! Rock beats Scissors")
         playerWin = -1 
     } else if (computerSelection === 3 && playerSelection === 1) {
-        console.log ("You win! Rock beats Scissors") 
+        roundMessage("You win! Rock beats Scissors") 
         playerWin = 1
     } else if (computerSelection === 2 && playerSelection === 3) {
-        console.log ("You win! Scissors beats paper") 
+        roundMessage("You win! Scissors beats paper") 
         playerWin = 1
     } else if (computerSelection === 3 && playerSelection === 2) {
-        console.log ("You lose! Scissors beats paper") 
+        roundMessage("You lose! Scissors beats paper") 
         playerWin = -1
     }
 
@@ -81,37 +81,68 @@ const scissor = 3;
 function computerPlay() {
     let computerSelection = Math.floor(Math.random()*3)+1
 
-    
     return computerSelection;
+}
+
+function roundMessage(string){
+    const message = document.querySelector(".message");
+    message.textContent = string;
+    message.style.alignSelf = "center";
+    message.style.fontWeight = "bold";
+    message.style.fontSize = "1.5em";
+    message.style.margin = "3vh 0 3vh 0";
+}
+
+function changeImage(playerSelection, computerSelection){
+
+    const player = document.getElementById("player");
+    const computer = document.getElementById("COM");
+
+    if (playerSelection === 1) {
+        player.src="img/Stone.jpeg"
+    } else if (playerSelection === 2) {
+        player.src="img/Paper.jpeg"
+    } else if (playerSelection === 3) {
+        player.src="img/Scissor.jpeg"
+    }
+    if (computerSelection === 1) {
+        computer.src="img/Stone.jpeg"
+    } else if (computerSelection === 2) {
+        computer.src="img/Paper.jpeg"
+    } else if (computerSelection === 3) {
+        computer.src="img/Scissor.jpeg"
+    }
 }
 
 function battle(playerSelection, computerSelection){
     if (computerSelection === playerSelection) {
-        console.log("Draw")
+        roundMessage("Draw");
         playerWin = 0
     } else if (computerSelection === 1 && playerSelection === 2) {
-        console.log ("You win! Paper beats rock")
+        roundMessage("You win! Paper beats rock")
         playerWin = 1
     } else if (computerSelection === 2 && playerSelection === 1) {
-        console.log ("You lose! Paper beats rock")
+        roundMessage("You lose! Paper beats rock")
         playerWin = -1 
     } else if (computerSelection === 1 && playerSelection === 3) {
-        console.log ("You lose! Rock beats Scissors")
+        roundMessage("You lose! Rock beats Scissors")
         playerWin = -1 
     } else if (computerSelection === 3 && playerSelection === 1) {
-        console.log ("You win! Rock beats Scissors") 
+        roundMessage("You win! Rock beats Scissors") 
         playerWin = 1
     } else if (computerSelection === 2 && playerSelection === 3) {
-        console.log ("You win! Scissors beats paper") 
+        roundMessage("You win! Scissors beats paper") 
         playerWin = 1
     } else if (computerSelection === 3 && playerSelection === 2) {
-        console.log ("You lose! Scissors beats paper") 
+        roundMessage("You lose! Scissors beats paper") 
         playerWin = -1
     }
 
+    changeImage(playerSelection, computerSelection);
     
     return playerWin;
 }
+
 
 document.getElementById("paper").addEventListener("click", (e) => {game(paper)});
 document.getElementById("rock").addEventListener("click", (e) => {game(rock)});
@@ -120,4 +151,5 @@ document.getElementById("scissor").addEventListener("click", (e) => {game(scisso
 function game(playerSelection) {
     let computerSelection = computerPlay()
     let playerWin = battle(playerSelection,computerSelection)
+
     }
